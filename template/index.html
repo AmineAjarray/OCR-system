@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Image to text</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename = 'dist/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename = 'sticky-footer.css')}}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+      <h1 class="mt-15">OCR Insérer une image et obtenir le texte : </h1>
+      <p class="lead">Veuillez Insérer une image pour obtenir le texte (Les formats acceptées sont : JPG; PNG; JPEG).</p>
+      <div class="card">
+        <div class="card-body">
+          <table style = "margin: auto;">
+            <tr class = "p-5"> 
+              <td>
+                <form method="post" action="/" enctype="multipart/form-data" class = "form-inline">
+                  <div class="form-group">
+                    <input type="file" class="form-control-file" name = "file">
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Envoyer" class = "btn btn-success">
+                </div>
+                </form>
+              </td>
+            </tr>
+            <tr class = "p-5"> 
+              <td>Le texte reconnu : </td>
+            </tr>
+            <tr class = "p-5">
+              <td><textarea name = "output"  class="form-control" id="exampleFormControlTextarea1" rows="3">{{text}}</textarea></td>
+            </tr>
+          </table>
+          <br />
+          <form class="form-inline">
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Veuillez choisir un format :</label>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+              <option selected>Choisir...</option>
+              <option value="1">Word</option>
+              <option value="2">PDF</option>
+              <option value="3">Text</option>
+            </select>         
+            <button type="submit" class="btn btn-primary my-1">Télécharger</button>
+          </form>
+        </div>
+      
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted"><center>Institut national de statistique et d'économie appliquée</center></span>
+      </div>
+    </footer>
+  </body>
+</html>
